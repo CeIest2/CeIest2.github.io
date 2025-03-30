@@ -1,14 +1,36 @@
-title: Test
-descritpion: descritption de test
+title: The Valley of Blog
+description: Votre parcours dans le développement web commence ici
 author: Morel Célestin
 
 baseurl: ''
 url: 'https://CeIest2.github.io'
 
+# Build settings
+markdown: kramdown
+permalink: /blog/:year/:month/:day/:title/
 
----
-layout: post
-title: "Mon premier article"
-date: 2025-03-30 14:30:00 +0200
-categories: blog personnel
----
+# Collections pour les pages de catégories
+collections:
+  categories:
+    output: true
+    permalink: /categories/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: categories
+    values:
+      layout: category
+
+# Excerpt separator
+excerpt_separator: <!--more-->
+
+# Plugins
+plugins:
+  - jekyll-feed
