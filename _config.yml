@@ -1,0 +1,14 @@
+title: Test
+descritpion: descritption de test
+author: Morel Célestin
+
+baseurl:""
+url:"https://CeIest2.github.io"
+
+
+---
+layout: post
+title: "Mon premier article"
+date: 2025-03-30 14:30:00 +0200
+categories: blog personnel
+---
