@@ -86,7 +86,7 @@ layout: null
     }
     
     .sidebar {
-      width: 250px;
+      width: 400px;
       background-color: var(--section-bg);
       padding: 1.5rem;
       height: 100vh;
@@ -155,7 +155,7 @@ layout: null
     }
     
     main {
-      margin-left: 250px;
+      margin-left: 400px;
       padding: 2rem;
       max-width: 1000px;
     }
@@ -288,24 +288,24 @@ layout: null
   <div class="sidebar">
     <div class="sidebar-header">
       <div class="sidebar-title">{{ site.title }}</div>
-      <div class="sidebar-subtitle">/* votre blog personnel */</div>
+      <div class="sidebar-subtitle">/*Blog under construction */</div>
     </div>
     
     <div class="sidebar-nav">
       <div class="sidebar-nav-title">Navigation</div>
       <ul class="sidebar-nav-items">
         <li class="sidebar-nav-item {% if page.url == '/' %}active{% endif %}">
-          <a href="{{ site.baseurl }}/">Accueil</a>
+          <a href="{{ site.baseurl }}/">Home</a>
         </li>
         <li class="sidebar-nav-item {% if page.url contains '/blog/' %}active{% endif %}">
           <a href="{{ site.baseurl }}/blog/">Articles</a>
         </li>
         <li class="sidebar-nav-item {% if page.url == '/about/' %}active{% endif %}">
-          <a href="{{ site.baseurl }}/about/">À propos</a>
+          <a href="{{ site.baseurl }}/about/">About</a>
         </li>
       </ul>
       
-      <div class="sidebar-nav-title">Catégories</div>
+      <div class="sidebar-nav-title">Categories</div>
       <ul class="sidebar-nav-items">
         {% for category in site.categories %}
         <li class="sidebar-nav-item">
