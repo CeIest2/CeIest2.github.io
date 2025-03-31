@@ -309,7 +309,7 @@ layout: null
       <ul class="sidebar-nav-items">
         {% for category in site.categories %}
         <li class="sidebar-nav-item">
-          <a href="{{ site.baseurl }}/categories/{{ category[0] | slugify }}/">{{ category[0] }}</a>
+          <a href="{{ site.baseurl }}/categories/{{ category[0] | slugify | downcase }}/">{{ category[0] }}</a>
         </li>
         {% endfor %}
       </ul>
