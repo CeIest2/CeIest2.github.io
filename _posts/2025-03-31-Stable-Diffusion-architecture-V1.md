@@ -2,7 +2,7 @@
 layout: post
 title: "Stable Diffusino architecture V1"
 date: 2025-03-31
-categories: [deep-learning, generative IA, image generation]
+categories: [training]
 ---
 
 Explicatin of how work stable diffusion V1
