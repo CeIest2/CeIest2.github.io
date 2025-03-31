@@ -1,10 +1,9 @@
 ---
 layout: post
-title: "Stable Diffusino architecture V1"
+title: "Stable Diffusion architecture V1"
 date: 2025-03-31
-categories: [training]
+categories: training
 ---
-
 Explicatin of how work stable diffusion V1
 
 

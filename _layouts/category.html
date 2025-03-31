@@ -8,14 +8,16 @@ layout: default
   </div>
   
   <div class="content-container">
-    {% for post in site.categories[page.category] %}
-    <div class="content-box">
-      <div class="content-box-number">{{ forloop.index }}</div>
-      <h2 class="content-box-title">{{ post.title }}</h2>
-      <p class="post-date">{{ post.date | date: "%d/%m/%Y" }}</p>
-      <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
-      <a href="{{ post.url | relative_url }}">Lire l'article →</a>
-    </div>
+    {% for post in site.posts %}
+      {% if post.categories contains page.category %}
+      <div class="content-box">
+        <div class="content-box-number">{{ forloop.index }}</div>
+        <h2 class="content-box-title">{{ post.title }}</h2>
+        <p class="post-date">{{ post.date | date: "%d/%m/%Y" }}</p>
+        <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+        <a href="{{ post.url | relative_url }}">Lire l'article →</a>
+      </div>
+      {% endif %}
     {% endfor %}
   </div>
 </div>

@@ -295,7 +295,7 @@ layout: null
       <div class="sidebar-nav-title">Navigation</div>
       <ul class="sidebar-nav-items">
         <li class="sidebar-nav-item {% if page.url == '/' %}active{% endif %}">
-          <a href="{{ site.baseurl }}/">Home</a>
+          <a href="{{ site.baseurl }}/">HOME</a>
         </li>
         <li class="sidebar-nav-item {% if page.url contains '/blog/' %}active{% endif %}">
           <a href="{{ site.baseurl }}/blog/">Articles</a>
@@ -307,10 +307,11 @@ layout: null
       
       <div class="sidebar-nav-title">Categories</div>
       <ul class="sidebar-nav-items">
-        {% for category in site.categories %}
-        <li class="sidebar-nav-item">
-          <a href="{{ site.baseurl }}/categories/{{ category[0] | slugify | downcase }}/">{{ category[0] }}</a>
-        </li>
+        {% for category_page in site.categories %}
+          {% assign category_name = category_page.category %}
+          <li class="sidebar-nav-item {% if page.url contains category_page.url %}active{% endif %}">
+            <a href="{{ site.baseurl }}{{ category_page.url }}">{{ category_name }}</a>
+          </li>
         {% endfor %}
       </ul>
     </div>
