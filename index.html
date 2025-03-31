@@ -2,57 +2,50 @@
 layout: default
 ---
 <div class="section">
-  <div class="section-header">
-    <h1 class="section-title">Bienvenue sur {{ site.title }}</h1>
-    <p class="section-description">Votre parcours dans le développement web commence ici</p>
-  </div>
-  
-  <div class="content-container">
-    <div class="content-box">
-      <div class="content-box-number">01</div>
-      <h2 class="content-box-title">Fondamentaux</h2>
-      <p>Les bases essentielles pour comprendre le web, HTML, CSS et plus encore.</p>
-      <a href="{{ site.baseurl }}/categories/fondamentaux/">Explorer →</a>
-    </div>
-    
-    <div class="content-box">
-      <div class="content-box-number">02</div>
-      <h2 class="content-box-title">HTML et CSS</h2>
-      <p>Maîtrisez la structure et le style de vos pages web.</p>
-      <a href="{{ site.baseurl }}/categories/html-css/">Explorer →</a>
-    </div>
-    
-    <div class="content-box">
-      <div class="content-box-number">03</div>
-      <h2 class="content-box-title">JavaScript</h2>
-      <p>Donnez vie à vos pages avec le langage de programmation du web.</p>
-      <a href="{{ site.baseurl }}/categories/javascript/">Explorer →</a>
-    </div>
-    
-    <div class="content-box">
-      <div class="content-box-number">04</div>
-      <h2 class="content-box-title">Projets</h2>
-      <p>Mes projets personnels et professionnels dans le domaine du web.</p>
-      <a href="{{ site.baseurl }}/categories/projets/">Explorer →</a>
-    </div>
-  </div>
+<div class="section-header">
+<h1 class="section-title">Welcome on{{ site.title }}</h1>
 </div>
-
+<div class="content-container">
+<div class="content-box">
+<div class="content-box-number">01</div>
+<h2 class="content-box-title">ML Fundamentals</h2>
+<p>Articles about some core knowledge of ML</p>
+<a href="{{ site.baseurl }}/categories/Fundamentals/">Explorer →</a>
+</div>
+<div class="content-box">
+<div class="content-box-number">02</div>
+<h2 class="content-box-title">Model Architectures</h2>
+<p>Learn about different famous model architectures</p>
+<a href="{{ site.baseurl }}/categories/Architectures/">Explorer →</a>
+</div>
+<div class="content-box">
+<div class="content-box-number">03</div>
+<h2 class="content-box-title">Training</h2>
+<p>Overview on how to train specific models</p>
+<a href="{{ site.baseurl }}/categories/Training/">Explorer →</a>
+</div>
+<div class="content-box">
+<div class="content-box-number">04</div>
+<h2 class="content-box-title">Projects</h2>
+<p>Other stuff...</p>
+<a href="{{ site.baseurl }}/categories/projects/">Explorer →</a>
+</div>
+</div>
+</div>
 <div class="section">
-  <div class="section-header">
-    <h2 class="section-title">Articles récents</h2>
-    <p class="section-description">Découvrez mes dernières publications</p>
-  </div>
-  
-  <div class="content-container">
-    {% for post in site.posts limit:4 %}
-    <div class="content-box">
-      <div class="content-box-number">{{ forloop.index }}</div>
-      <h2 class="content-box-title">{{ post.title }}</h2>
-      <p class="post-date">{{ post.date | date: "%d/%m/%Y" }}</p>
-      <p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
-      <a href="{{ post.url | relative_url }}">Lire l'article →</a>
-    </div>
-    {% endfor %}
-  </div>
+<div class="section-header">
+<h2 class="section-title">Articles récents</h2>
+<p class="section-description">The last publications</p>
+</div>
+<div class="content-container">
+ {% for post in site.posts limit:4 %}
+<div class="content-box">
+<div class="content-box-number">{{ forloop.index }}</div>
+<h2 class="content-box-title">{{ post.title }}</h2>
+<p class="post-date">{{ post.date | date: "%d/%m/%Y" }}</p>
+<p>{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+<a href="{{ post.url | relative_url }}">Lire l'article →</a>
+</div>
+ {% endfor %}
+</div>
 </div>
