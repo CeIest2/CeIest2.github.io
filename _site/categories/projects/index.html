@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Valley of Blog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Arvo:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #292C35;
+      --text-color: #ffffff;
+      --accent-color: #66d9ef;
+      --secondary-color: #f8f8f2;
+      --highlight-color: #e6db74;  /* Remplacez #e6db74 par #ffd319 */
+      --section-bg: #292C35;
+      --font-main: "Roboto Mono", monospace;  /* Nouvelle police principale */
+      --font-title: "Arvo", serif;  /* Nouvelle police pour les titres */
+      --font-code: "Roboto Mono", monospace;  /* Nouvelle police pour le code */
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-main);
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+    }
+    
+    a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    
+    a:hover {
+      text-decoration: underline;
+    }
+    
+    header {
+      padding: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+    }
+    
+    .site-logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-right: 2rem;
+      padding: 0.5rem 1rem;
+      background-color: var(--text-color);
+      color: var(--bg-color);
+      border-radius: 4px;
+    }
+    
+    nav {
+      flex-grow: 1;
+    }
+    
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+    
+    nav li {
+      font-size: 0.9rem;
+    }
+    
+    nav li.active a {
+      color: var(--highlight-color);
+    }
+    
+    .sidebar {
+      width: 400px;
+      background-color: var(--section-bg);
+      padding: 1.5rem;
+      height: 100vh;
+      position: fixed;
+      left: 0;
+      top: 0;
+      overflow-y: auto;
+    }
+    
+    .sidebar-header {
+      margin-bottom: 2rem;
+    }
+    
+    .sidebar-title {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-color);
+      font-family: var(--font-title);  /* Ajoutez cette ligne */
+    }
+    
+    .sidebar-subtitle {
+      font-size: 0.9rem;
+      color: var(--secondary-color);
+      margin-bottom: 1rem;
+    }
+    
+    .sidebar-nav {
+      margin-bottom: 2rem;
+    }
+    
+    .sidebar-nav-title {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+    }
+    
+    .sidebar-nav-items {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+    
+    .sidebar-nav-item {
+      margin-bottom: 0.5rem;
+      padding-left: 0.5rem;
+      border-left: 2px solid transparent;
+    }
+    
+    .sidebar-nav-item a {
+      color: var(--secondary-color);
+      font-size: 0.9rem;
+    }
+    
+    .sidebar-nav-item.active {
+      border-left-color: var(--highlight-color);
+    }
+    
+    .sidebar-nav-item.active a {
+      color: var(--highlight-color);
+    }
+    
+    .sidebar-footer {
+      font-size: 0.8rem;
+      color: var(--secondary-color);
+      margin-top: 2rem;
+    }
+    
+    main {
+      margin-left: 400px;
+      padding: 2rem;
+      max-width: 1000px;
+    }
+    
+    .section {
+      margin-bottom: 3rem;
+    }
+    
+    .section-header {
+      margin-bottom: 2rem;
+    }
+    
+    .section-title {
+      font-size: 2rem;
+      color: var(--text-color);
+      margin-bottom: 0.5rem;
+      font-family: var(--font-title);  /* Ajoutez cette ligne */
+    }
+    
+    .section-description {
+      color: var(--secondary-color);
+    }
+    
+    .content-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    .content-box {
+      background-color: var(--section-bg);
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+    
+    .content-box-number {
+      font-size: 0.8rem;
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .content-box-title {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      font-family: var(--font-title);  /* Ajoutez cette ligne */
+    }
+    
+    .post-content {
+      background-color: var(--section-bg);
+      border-radius: 8px;
+      padding: 2rem;
+    }
+    
+    .post-content h1 {
+      font-size: 2.5rem;
+      margin: 1.5rem 0;
+      color: var(--text-color);
+      font-family: var(--font-title); 
+    }
+    
+    .post-content h2 {
+      font-size: 1.8rem;
+      margin: 1.5rem 0 1rem;
+      color: var(--highlight-color);
+      font-family: var(--font-title);
+    }
+    
+    .post-content h3 {
+      font-size: 1.4rem;
+      margin: 1.2rem 0 0.8rem;
+      color: var(--accent-color);
+      font-family: var(--font-title);
+    }
+    
+    .post-content p {
+      margin-bottom: 1rem;
+    }
+    
+    .post-content ul, .post-content ol {
+      margin: 0 0 1rem 2rem;
+    }
+    
+    .post-content blockquote {
+      border-left: 4px solid var(--accent-color);
+      padding-left: 1rem;
+      margin-left: 0;
+      color: var(--secondary-color);
+      font-style: italic;
+    }
+    
+    .post-content pre {
+      background-color: #1a1a2e;
+      padding: 1rem;
+      border-radius: 4px;
+      overflow-x: auto;
+      margin-bottom: 1rem;
+    }
+    
+    .post-content code {
+      font-family: var(--font-code);
+      font-size: 0.9rem;
+    }
+    
+    .post-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      margin: 1rem 0;
+    }
+    
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+      }
+      
+      main {
+        margin-left: 0;
+        padding: 1rem;
+      }
+      
+      .content-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-title">The Valley of Blog</div>
+      <div class="sidebar-subtitle">/*Blog under construction */</div>
+    </div>
+    
+    <div class="sidebar-nav">
+      <div class="sidebar-nav-title">Navigation</div>
+      <ul class="sidebar-nav-items">
+        <li class="sidebar-nav-item ">
+          <a href="/">Home</a>
+        </li>
+        <li class="sidebar-nav-item ">
+          <a href="/blog/">Articles</a>
+        </li>
+        <li class="sidebar-nav-item ">
+          <a href="/about/">About</a>
+        </li>
+      </ul>
+      
+      <div class="sidebar-nav-title">Categories</div>
+      <ul class="sidebar-nav-items">
+        
+      </ul>
+    </div>
+    
+    <div class="sidebar-footer">
+      &copy; 2025 Morel Célestin
+    </div>
+  </div>
+
+  <main>
+    <div class="section">
+  <div class="section-header">
+    <h1 class="section-title">Catégorie: Projects</h1>
+    <p class="section-description">Tous les articles dans cette catégorie</p>
+  </div>
+  
+  <div class="content-container">
+    
+  </div>
+</div>
+  </main>
+</body>
+</html>
